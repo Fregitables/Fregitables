@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <a href="index.html" class="Back-btn">Back</a>
+  <title>Fregitables - Order</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <script>
+    var cart = [];
+    var total = 0;
+
+    function addToCart(product, price) {
+      cart.push({product: product, price: price});
+      total += price;
+      updateCart();
+    }
+
+    function removeFromCart(index) {
+      total -= cart[index].price;
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    function updateCart() {
+      var cartTable = document.getElementById("cart-table");
+      cartTable.innerHTML = "";
+
+      for (var i = 0; i < cart.length; i++) {
+        var row = document.createElement("tr");
+        var productCell = document.createElement("td");
+        productCell.innerHTML = cart[i].product;
+        row.appendChild(productCell);
+
+        var priceCell = document.createElement("td");
+        priceCell.innerHTML = "£" + cart[i].price.toFixed(2);
+        row.appendChild(priceCell);
+
+        var removeCell = document.createElement("td");
+        var removeBtn = document.createElement("button");
+        removeBtn.innerHTML = "Remove";
+        removeBtn.onclick = (function(index) { return function() { removeFromCart(index); } })(i);
+        removeCell.appendChild(removeBtn);
+        row.appendChild(removeCell);
+
+        cartTable.appendChild(row);
+      }
+
+      document.getElementById("cart-total").innerHTML = "Cart Total: £" + total.toFixed(2);
+    }
+  </script>
+  <style>
+    /* Add some basic styling */
+    <style>
+    /* Add some basic styling */
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 1em 0;
+    }
+
+    /* Add styles for the product table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #f2f2f2;
+      padding: 0.5em;
+    }
+
+    th {
+      text-align: left;
+      background-color: #f2f2f2;
+    }
+
+    /* Add styles for the cart table */
+    #cart-table {
+      margin: 2em 0;
+    }
+
+    #cart-table th, #cart-table td {
+      text-align: center;
+    }
+
+    #cart-total {
+      text-align: right;
+      font-weight: bold;
+      margin: 1em 0;
+    }
+
+    /* Add styles for the "Add to Cart" and "Remove" buttons */
+    button {
+      background-color: blue;
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Fregitables - Order</h1>
+  <table>
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+    <tr>
+      <td>Garlic</td>
+      <td>£0.25</td>
+      <td><button onclick="addToCart('Garlic', 0.25)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Broccoli</td>
+      <td>£1</td>
+      <td><button onclick="addToCart('Broccoli', 1)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Carrots</td>
+      <td>£0.50</td>
+      <td><button onclick="addToCart('Carrots', 0.50)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Onions</td>
+      <td>£0.75</td>
+      <td><button onclick="addToCart('Onions', 0.75)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Potatoes</td>
+      <td>£1.50</td>
+      <td><button onclick="addToCart('Potatoes', 1.50)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Tomatoes</td>
+      <td>£2.00</td>
+      <td><button onclick="addToCart('Tomatoes', 2.00)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Apples</td>
+      <td>£2.50</td>
+      <td><button onclick="addToCart('Apples', 2.50)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Bananas</td>
+      <td>£1.00</td>
+      <td><button onclick="addToCart('Bananas', 1.00)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Cherries</td>
+      <td>£3.00</td>
+      <td><button onclick="addToCart('Cherries', 3.00)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Mangoes</td>
+      <td>£2.75</td>
+      <td><button onclick="addToCart('Mangoes', 2.75)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Peaches</td>
+      <td>£2.25</td>
+      <td><button onclick="addToCart('Peaches', 2.25)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Pears</td>
+      <td>£2.00</td>
+      <td><button onclick="addToCart('Pears', 2.00)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Pineapple</td>
+      <td>£2.75</td>
+      <td><button onclick="addToCart('Pineapples', 2.75)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Plums</td>
+      <td>£2.50</td>
+      <td><button onclick="addToCart('Plums', 2.50)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Raspberries</td>
+      <td>£2.50</td>
+      <td><button onclick="addToCart('Raspberries', 2.50)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Strawberries</td>
+      <td>£2</td>
+      <td><button onclick="addToCart('Strawberries', 2.00)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Carrots</td>
+      <td>£1.50</td>
+      <td><button onclick="addToCart('Carrots', 1.50)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Celery</td>
+      <td>£0.50</td>
+      <td><button onclick="addToCart('Celery', 1.25)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Cucumber</td>
+      <td>£1.75</td>
+      <td><button onclick="addToCart('Cucumber', 1.75)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Aubergine</td>
+      <td>£2.00</td>
+      <td><button onclick="addToCart('Aubergine', 2.00)">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td>Courgette</td>
+      <td>£1.50</td>
+      <td><button onclick="addToCart('Courgette', 1.50)">Add to Cart</button></td>
+    </tr>
+            
+  </table>
+
+  <table id="cart-table">
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+  </table>
+
+  <div id="cart-total"></div>
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" name="phone">
+    <button type="button" onclick="displayOrder()">Complete Order</button>
+  </form>
+  
+  <div id="order-modal" style="display: none;">
+    <div id="order-content">
+      <h2>Your Order:</h2>
+      <table id="order-table"></table>
+      <p id="order-total"></p>
+      <button type="button" onclick="submitOrder()">Submit Order</button>
+      <button type="button" onclick="hideOrder()">Close</button>
+    </div>
+  </div>
+  
+<script>
+    function displayOrder() {
+      // create a table to display the order
+      var table = document.getElementById("order-table");
+      table.innerHTML = "";
+      for (var i = 0; i < cart.length; i++) {
+        var row = document.createElement("tr");
+        var productCell = document.createElement("td");
+        productCell.innerHTML = cart[i].product;
+        row.appendChild(productCell);
+  
+        var priceCell = document.createElement("td");
+        priceCell.innerHTML = "£" + cart[i].price.toFixed(2);
+        row.appendChild(priceCell);
+  
+        table.appendChild(row);
+      }
+      document.getElementById("order-total").innerHTML = "Order Total: £" + total.toFixed(2);
+  
+      // display the modal
+      document.getElementById("order-modal").style.display = "block";
+    }
+  
+    function hideOrder() {
+      // hide the modal
+      document.getElementById("order-modal").style.display = "none";
+    }
+  
+    function submitOrder() {
+      // get the user's name and phone number
+      var name = document.getElementById("name").value;
+      var phone = document.getElementById("phone").value;
+  
+      // code to submit the order (e.g. send a POST request to a server)
+  
+      // clear the cart and update the total
+      cart = [];
+      total = 0;
+      updateCart();
+  
+      // hide the modal and display a message to the user
+      hideOrder();
+      alert("Order submitted! Thank you " + name + " for your order. We will contact you at " + phone);
+    }
+  </script> 
+</body>
+</html>
+
