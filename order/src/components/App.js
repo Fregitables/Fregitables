@@ -10,7 +10,8 @@ const App = () => {
   const [myCart, setMyCart] = useState([]);
   const addToCart = item => setMyCart([...myCart, item]);
   const removeFromCartByIndex = index => setMyCart(myCart.filter((_, i) => index !== i));
-  const total = myCart.reduce((acc, item) => acc + item.price, 0);
+  const totalPrice = myCart.reduce((acc, item) => acc + item.price, 0);
+  const submit = () => alert(`submit clicked\n\nitem count: ${myCart.length}\nprice total: ${currencyFormat.format(totalPrice)}`);
 
   return (
     <>
@@ -36,6 +37,7 @@ const App = () => {
       </table>
 
       {/* users shopping cart / checkout */}
+      <h1>Checkout</h1>
       <table>
         <tr>
           <th>Product</th>
@@ -46,19 +48,19 @@ const App = () => {
           const { label, price } = item;
           return (
             <tr>
-              <td>{index}{label}</td>
+              <td>{label}</td>
               <td>{currencyFormat.format(price)}</td>
               <td><button onClick={() => removeFromCartByIndex(index)}>Remove from Cart</button></td>
             </tr>
           );
         })}
         <tr>
-          <td>TOTAL:</td>
-          <td>{currencyFormat.format(total)}</td>
+          <td>TOTAL</td>
+          <td>{currencyFormat.format(totalPrice)}</td>
           <td></td>
         </tr>
       </table>
-
+      <button id="submit-order" onClick={submit}>Submit Order</button>
     </>
   );
 };
