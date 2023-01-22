@@ -15,9 +15,8 @@ const App = () => {
 
   return (
     <>
-      <h1>Fregitables - Order</h1>
-
       {/* shows the products to select from */}
+      <h1>Fregitables - Order</h1>
       <table>
         <tr>
           <th>Product</th>
