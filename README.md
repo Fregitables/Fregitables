@@ -16,3 +16,18 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+### development
+
+1. install git (reccomend install via [chocolatey](https://community.chocolatey.org/packages/git) on Windows)
+1. install VSCode (reccomend install via [chocolatey](https://community.chocolatey.org/packages/vscode) on Windows)
+1. install nodejs (reccomend install via [chocolatey](https://community.chocolatey.org/packages/nodejs) on Windows)
+1. open your "dev folder" in vscode (create a folder, right click and "open with VSCode")
+1. in VSCode click "Terminal > New Terminal"
+1. in terminal (at the bottom), type
+    ```sh
+    git clone https://github.com/Fregitables/Fregitables.github.io.git
+    cd Fregitables.github.io
+    npx serve
+    ```
+1. visit http://localhost:3000
