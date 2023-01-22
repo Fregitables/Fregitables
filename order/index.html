@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <a href="/" class="Back-btn">Back</a>
   <title>Fregitables - Order</title>
+  <link rel="icon" href="/icon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
   <script>
@@ -347,6 +350,32 @@ cursor: pointer;
     <button id="submit-order" onclick="submitOrder()">Submit Order</button>
   </div>
 </div>
+
+
+<!-- new stuff below -->
+
+<noscript>
+  javascript must be enabled!
+  <style> .js-enabled { display: none; } </style>
+</noscript>
+
+<div id="root" class="js-enabled"><div class="spin loader">🌀</div></div>
+
+<script async src="https://ga.jspm.io/npm:es-module-shims@0.10.1/dist/es-module-shims.min.js"></script>
+
+<!-- jspm, jsdelivr, skypack, unpkg, cdnjs, esm.sh, esm.run, cdnpkg.com -->
+<script type="importmap">
+  {
+    "imports": {
+      "react": "https://cdn.skypack.dev/react",
+      "react-dom": "https://cdn.skypack.dev/react-dom",
+      "styled-components": "https://cdn.skypack.dev/styled-components"
+    }
+  }
+</script>
+
+<script async src="service-worker-register.js"></script>
+
 </body>
 </html>
 
